@@ -105,12 +105,12 @@ class VK:
             response_links_wd = list(dict.fromkeys(response_links))
 
             if len(response_links_wd) > 1:
-                response_str = 'Вот твои ссылки из сообщения:\n\n'
+                response_str = '🔗 Вот твои ссылки из сообщения:\n\n'
                 for i_link in range(len(response_links_wd)):
                     response_str += response_links_wd[i_link] + '\n'
 
             else:
-                response_str = 'Была найдена лишь одна ссылка в сообщении: ' + response_links_wd[0]
+                response_str = '🔗 Была найдена лишь одна ссылка в сообщении: ' + response_links_wd[0]
 
             self.send_message(peer_id, response_str)
 
@@ -123,7 +123,7 @@ class VK:
 
         else:
             Log().info(tag, 'Неизвестная команда.')
-            self.send_message(event.obj.peer_id, 'Неизвестная команда.')
+            self.send_message(event.obj.peer_id, '🐸 Ссылок нет.')
 
     def get_cc_link(self, url, private):
         cc_link = self.api_bot_vk.utils.getShortLink(
